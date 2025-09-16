@@ -1,8 +1,6 @@
 import * as THREE from 'three';
 
-type Props = {}
-
-const ShowCastLight = (props: Props) => {
+const ShowCastLight = () => {
   return (
     <>
 
