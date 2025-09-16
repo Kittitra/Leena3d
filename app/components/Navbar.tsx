@@ -4,11 +4,10 @@ import { navLinks } from '@/constants'
 import React, { useEffect, useRef, useState } from 'react'
 import { useWindowScroll } from 'react-use';
 import gsap from 'gsap';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
-type Props = {}
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
@@ -47,17 +46,17 @@ const Navbar = (props: Props) => {
       <header className='absolute w-full px-10'>
         <div className='flex flex-row justify-between '>
           <div>
-            <a href="/">
+            <Link href="/">
               Logo
-            </a>
+            </Link>
           </div>
           {params != "/" ? '' :
           (
             <div className='hidden md:flex flex-row gap-5 '>
               {navLinks.map((link) => (
-                <a href={link.link}  key={link.name}>
+                <Link href={link.link}  key={link.name}>
                   <span className='link link-underline link-underline-black'>{link.name}</span>
-                </a>
+                </Link>
               ))}
             </div>
           )}

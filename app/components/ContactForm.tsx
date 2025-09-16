@@ -4,7 +4,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import React, { useRef, useState } from 'react'
 import emailjs from "@emailjs/browser";
 
-type Props = {}
 
 const ContactForm = () => {
     const [loading, setLoading] = useState(false);
