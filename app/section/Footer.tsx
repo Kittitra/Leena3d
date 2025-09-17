@@ -49,7 +49,7 @@ const Footer = () => {
             </div>
         </div>
         
-        <span className='font-noto-sans text-sm text-end mr-[-5rem] text-grey-500 z-10'>
+        <span className='font-noto-sans text-sm text-end px-3 xl:px-0 xl:mr-[-5rem] text-grey-500 z-10'>
             © 2025 .Logo All rights reserved
         </span>
     </section>

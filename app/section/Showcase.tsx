@@ -23,12 +23,12 @@ const Showcase = () => {
           <p className='font-noto-sans text-sm md:w-[50vh] xl:w-fit md:text-lg px-5 md:px-0 '>การนำ mesh ไปผ่านกระบวนการต่างๆ เช่นการ Texture piant, UVmap, Geometry Nodes และ rig and weightpaint จนออกมาเป็น model ที่ต้องการ</p>
         </div>
 
-        <div className='w-full flex-col px-5 items-center justify-center gap-5 md:gap-0 h-full md:relative mt-40 z-20 overflow-hidden'>
+        <div className='w-full flex-col xl:flex-none px-5 items-center justify-center gap-5 md:gap-0 h-full md:relative mt-40 z-20 overflow-visible'>
           <div className='xl:absolute left-0 xl:left-[35vh] top-0 z-10 mb-10'>
             <FloatCard title={Texture.title} content={Texture.content} footerLink={Texture.footerLink} />
           </div>
 
-          <div className='xl:absolute right-[25vh] top-0 mb-10'>
+          <div className='xl:absolute right-[25vh] top-0 mb-10 xl:mb-0'>
             <FloatCard title={uv.title} content={uv.content} footerLink={uv.footerLink} />
           </div>
 
