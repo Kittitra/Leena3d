@@ -10,19 +10,20 @@ import * as THREE from 'three'
 
 
 
-const ShowCastExp = () => {
+export default function ShowCastExp(){
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const { scene } = useGLTF('/models/leena_Showcase_card.glb');
 
     useEffect(() => {
-    scene.traverse((child: any) => {
-      if (child.isMesh) {
-        child.castShadow = true
-        child.receiveShadow = true
-      }
-    })
-  }, [scene])
+      scene.traverse((child) => {
+        if ((child as THREE.Mesh).isMesh) {
+          const mesh = child as THREE.Mesh
+          mesh.castShadow = true
+          mesh.receiveShadow = true
+        }
+      })
+    }, [scene])
 
   return (
     <Canvas camera={{ position: isMobile ? [10, 0, 50] : isTablet ? [1, 0, 15] : [1, 0, 15], fov: 45  }}  shadows={{ type: THREE.PCFSoftShadowMap }}>
@@ -56,6 +57,5 @@ const ShowCastExp = () => {
   )
 }
 
-export default ShowCastExp
 
 

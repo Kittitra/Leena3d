@@ -1,7 +1,9 @@
+'use client';
+
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { showcaseData } from '@/constants'
 import React from 'react'
-import ShowCastExp from '../components/models/showcast-models/ShowCastExp';
+import ShowCastExp from '../components/models/showcast-models/ShowcastWrap';
 
 
 const Texture = showcaseData[0];

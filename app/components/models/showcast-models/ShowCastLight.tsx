@@ -1,6 +1,6 @@
-import * as THREE from 'three';
+'use client';
 
-const ShowCastLight = () => {
+export default function ShowCastLight(){
   return (
     <>
 
@@ -69,5 +69,3 @@ const ShowCastLight = () => {
     </>
   )
 }
-
-export default ShowCastLight

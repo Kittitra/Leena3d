@@ -1,11 +1,10 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import HeroLights from './HeroLights'
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import { GLTF } from 'three/examples/jsm/Addons.js';
 import * as THREE from 'three';
 
 export function PreloadHeroModel() {
@@ -15,19 +14,20 @@ export function PreloadHeroModel() {
   return null
 }
 
-const HeroExp = () => {
+export default function HeroExp() {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const { scene } = useGLTF('/models/leena-hero.glb');
 
-      useEffect(() => {
-        scene.traverse((child: any) => {
-          if (child.isMesh) {
-              child.castShadow = true
-              child.receiveShadow = true
-            }
-        })
-      }, [scene])
+    useEffect(() => {
+      scene.traverse((child) => {
+        if ((child as THREE.Mesh).isMesh) {
+          const mesh = child as THREE.Mesh
+          mesh.castShadow = true
+          mesh.receiveShadow = true
+        }
+      })
+    }, [scene])
 
   return (
     <Canvas camera={{ position: [1, 0, 15], fov: 45  }}  shadows={{ type: THREE.PCFSoftShadowMap }}>
@@ -50,6 +50,5 @@ const HeroExp = () => {
   )
 }
 
-export default HeroExp
 
 

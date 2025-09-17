@@ -14,7 +14,7 @@ type Props = {
     };
 }
 
-const TechIcon = (props: Props) => {
+export default function TechIcon (props: Props) {
     const scene = useGLTF(props.model.url);
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -43,5 +43,3 @@ const TechIcon = (props: Props) => {
     </Canvas>
   )
 }
-
-export default TechIcon

@@ -2,11 +2,10 @@
 
 import { AboutData } from '@/constants'
 import React from 'react'
-import TechIcon from '../components/models/about-models/TechIcon';
+import TechIcon from '../components/models/about-models/TechIconWrap';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useMediaQuery } from 'react-responsive';
 gsap.registerPlugin(ScrollTrigger)
 
 

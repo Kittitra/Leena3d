@@ -1,8 +1,10 @@
+'use client';
+
 import { useMediaQuery } from 'react-responsive';
 import * as THREE from 'three';
 
 
-const HeroLights = () => {
+export default function HeroLights() {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
@@ -58,5 +60,3 @@ const HeroLights = () => {
     </>
   )
 }
-
-export default HeroLights

@@ -1,4 +1,5 @@
-import { Card } from '@/components/ui/card'
+'use client';
+
 import React from 'react'
 import ShowCards from '../components/ShowCards'
 import { cardModelTopic } from '@/constants'

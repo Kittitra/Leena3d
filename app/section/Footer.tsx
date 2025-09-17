@@ -1,4 +1,5 @@
 'use client';
+
 import { footerLinks, footerNav } from '@/constants'
 import { usePathname } from 'next/navigation';
 import React from 'react'

@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useRef } from 'react'
-import HeroExp from '../components/models/hero-models/HeroExp'
+import React from 'react'
+import HeroExp from '../components/models/hero-models/HeroExpWrap'
 import { Button } from '@/components/ui/button'
 import { IoMdArrowDropdown } from 'react-icons/io'
-import { useGSAP } from '@gsap/react'
 import gsap from 'gsap';
 import CardShow from './CardShow';
+
 
 const Hero = () => {
 
