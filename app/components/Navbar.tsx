@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useProgress } from '@react-three/drei';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -56,12 +57,12 @@ const Navbar = () => {
         <div className='flex flex-row justify-between '>
           <div>
             <Link href="/">
-              Logo
+              <Image src='/images/Logo.png' alt='logo' width={50} height={50} className=' rounded-full' />
             </Link>
           </div>
           {params != "/" ? '' :
           (
-            <div className='hidden md:flex flex-row gap-5 '>
+            <div className='hidden md:flex flex-row gap-5 items-center '>
               {navLinks.map((link) => (
                 <Link href={link.link}  key={link.name}>
                   <span className='link link-underline link-underline-black'>{link.name}</span>

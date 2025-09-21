@@ -2,6 +2,7 @@
 
 import { footerLinks, footerNav } from '@/constants'
 import { useProgress } from '@react-three/drei';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
@@ -28,7 +29,9 @@ const Footer = () => {
 
         <div className='flex flex-col md:flex-row gap-20 md:gap-0 justify-center items-center w-full h-full z-10'>
             <div className='flex flex-col gap-5 w-4/5'>
-                <h1 className='font-noto-bold text-4xl'>Logo</h1>
+                <div className='border-2 border-black w-fit h-full'>
+                    <Image src='/images/Logo.png' alt='logo' width={150} height={150} />
+                </div>
                 <span className='font-noto-sans text-sm'>
                     สร้างผลงานที่น่าสนใจด้วยโมเดลสามมิติ
                 </span>
