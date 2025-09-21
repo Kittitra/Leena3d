@@ -1,13 +1,22 @@
 'use client';
 
 import { footerLinks, footerNav } from '@/constants'
+import { useProgress } from '@react-three/drei';
 import { usePathname } from 'next/navigation';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Footer = () => {
+    const { progress } = useProgress()
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        if (progress >= 100) {
+          setShow(true);
+        }
+    }, [progress])
     const params = usePathname();
   return (
-    <section id='footer' className='relative flex flex-col w-full bg-gray-200 h-[75vh] md:pt-[20rem] pb-5 md:px-20 xl:px-36 overflow-hidden'>
+    <section id='footer' className={`relative flex flex-col w-full bg-gray-200 h-[75vh] md:pt-[20rem] pb-5 md:px-20 xl:px-36 overflow-hidden ${show ? '': 'hidden'}`}>
         <div className='absolute top-0 md:top-0 xl:top-[-5vh] xl:right-[10vh] w-[50vh] md:w-[75vh] '>
             <img src="/images/footer-image.png" alt="" className='w-full h-full object-cover'/>
             <div className='absolute inset-0 bg-gradient-to-t from-gray-200 to-transparent' />

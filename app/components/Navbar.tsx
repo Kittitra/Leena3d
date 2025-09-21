@@ -6,6 +6,7 @@ import { useWindowScroll } from 'react-use';
 import gsap from 'gsap';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { useProgress } from '@react-three/drei';
 
 const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -15,7 +16,15 @@ const Navbar = () => {
   const params = usePathname();
 
   const { y: currentScrollY } = useWindowScroll();
+  
+  const { progress } = useProgress()
+  const [show, setShow] = useState(false);
 
+  useEffect(() => {
+    if (progress >= 100) {
+      setShow(true);
+    }
+  } ,[progress])
   
   useEffect(() => {
       if(currentScrollY === 0){
@@ -42,7 +51,7 @@ const Navbar = () => {
   }, [isNavVisible])
   
   return (
-    <div ref={navRef} className={`fixed flex items-center w-full h-16 z-[100] transition-all duration-300 ease-in-out ${params != '/' ? 'text-white' : 'text-black'}`}>
+    <div ref={navRef} className={`fixed flex items-center w-full h-16 z-[100] transition-all duration-300 ease-in-out ${params != '/' ? 'text-white' : 'text-black'} ${show ? '': 'hidden'}` }>
       <header className='absolute w-full px-10'>
         <div className='flex flex-row justify-between '>
           <div>
