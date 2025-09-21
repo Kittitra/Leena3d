@@ -40,7 +40,7 @@ body {
     @apply flex flex-col justify-center items-center;
   }
    .floating-nav {
-    @apply text-white bg-accent;
+    @apply text-white bg-none;
   }
 }
 
