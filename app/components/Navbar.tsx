@@ -43,15 +43,15 @@ const Navbar = () => {
   }, [currentScrollY, lastScrollY]);
 
   useEffect(() => {
-      gsap.to(navRef.current, {
-          y: isNavVisible ? 0 : -100,
-          opacity: isNavVisible ? 1 : 0,
-          duration: 0.2,
-      })
-  }, [isNavVisible])
+    if (params === "/") {
+      setShow(progress >= 100)
+    } else {
+      setShow(true) // ✅ หน้าอื่นให้โชว์ navbar เลย
+    }
+  }, [progress, params])
   
   return (
-    <div ref={navRef} className={`fixed flex items-center w-full h-16 z-[100] transition-all duration-300 ease-in-out ${params != '/' ? 'text-white' : 'text-black'} ${show ? '': 'hidden'}` }>
+    <div ref={navRef} className={`fixed flex items-center w-full h-16 z-[100] transition-all duration-300 ease-in-out ${params != '/' ? 'text-white' : 'text-black'} ${show ? ' block': 'hidden'}` }>
       <header className='absolute w-full px-10'>
         <div className='flex flex-row justify-between '>
           <div>
